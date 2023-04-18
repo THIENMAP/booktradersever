@@ -15,20 +15,28 @@ public class Book {
     @Column(name = "NAME",nullable = false)
     @Size(min = 3, max = 255)
     @NotBlank(message = "Name is mandatory")
+    @NotEmpty
     String name;
     @Column(name = "PRICE")
     @Size(min = 0)
+    @NotEmpty
     int price;
     @Column(name = "IMAGE")
+    @NotEmpty
     String image;
     @Column(name = "QUANTITY")
+    @NotEmpty
     @Size(min = 0)
     int quantity;
     @Column(name = "AUTHOR")
+    @NotEmpty
     String author;
     @Column(name = "PUBLISHING_YEAR")
+    @NotEmpty
+    @Pattern(regexp = "[12][089][0-9][0-9]")
     String publishingYear;
     @Column(name = "TEXT")
+    @NotEmpty
     String text;
 
 
@@ -94,7 +102,7 @@ public class Book {
         this.name = name;
     }
 
-    public long getPrice() {
+    public int getPrice() {
         return price;
     }
 
